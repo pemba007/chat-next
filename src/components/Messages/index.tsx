@@ -1,4 +1,5 @@
 import { Container, Typography } from "@mui/material";
+import SingleMessage from "./SingleMessage";
 
 const Messages = () => {
   return (
@@ -7,10 +8,23 @@ const Messages = () => {
         Messages
       </Typography>
       <Container
-        style={{ background: "red", minHeight: "80vh", overflow: "auto" }}
+        style={{
+          background: "red",
+          minHeight: "75vh",
+          overflow: "auto",
+          flexDirection: "column-reverse",
+          display: "flex",
+        }}
       >
-        something
+        <SingleMessage />
+        <SingleMessage />
+        <SingleMessage />
+        <SingleMessage />
+        <SingleMessage />
+        <SingleMessage />
+        <SingleMessage isSender={true} />
       </Container>
+      <Container align='center'>type Messages here</Container>
     </Container>
   );
 };
