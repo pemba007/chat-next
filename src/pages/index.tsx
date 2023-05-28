@@ -3,18 +3,26 @@ import styles from "../styles/Home.module.css";
 import Typography from "@mui/material/Typography";
 import { googleSignIn } from "@/firebase/googleSignIn";
 
+import { useRouter } from "next/navigation";
+
 import { useGlobalContext } from "../hooks/contexts";
 
 export default function Home() {
+  const router = useRouter();
   const { setUser } = useGlobalContext();
+
   const _handleLogin = async () => {
-    const data = await googleSignIn();
-    if (data) {
-      // No Data Error
-      console.log("Data", data);
-    } else {
-      // alert("Error in login");
-      console.log("Data", data);
+    try {
+      const data = await googleSignIn();
+      console.log("Google sign in data", data);
+
+      setUser(data);
+      router.push("/home");
+
+      // Access the data and perform necessary actions
+    } catch (error) {
+      // Handle any errors that occur during sign-in
+      console.log("Error in login", error);
     }
   };
 
