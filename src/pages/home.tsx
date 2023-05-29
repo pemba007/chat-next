@@ -18,7 +18,10 @@ const HomePage = () => {
           item
           xs={12}
           sm={3}
-          style={{ background: "blue", padding: "50px 10px" }}
+          style={{
+            // background: "blue",
+            padding: "50px 10px",
+          }}
         >
           <Typography align='center' variant='h2'>
             Friends
